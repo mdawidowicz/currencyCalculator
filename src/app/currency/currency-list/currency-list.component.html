@@ -1,12 +1,16 @@
 <div class="container">
   <div class="row content subpage">
 
+    <h3>rates=: {{ (currencyFrom.rates|json) }}</h3>
+    <h3>rates=: {{ (currencyFrom.rates.PLN) }}</h3>
     <div class="col-md-9 col-xs-12 col-sm-9">
       <section>
         <h1> Kalkulator walutowy</h1>
         <h2>Sprawdź kurs i przelicz walutę.</h2>
       </section>
     </div>
+
+    <input class="form-control" [(ngModel)]="euroCurse" disabled>
 
     <div class="col-md-4 col-xs-12 col-sm-9 separator">
       <label class="col-sm-9 control-label">Przelicz z waluty</label>
