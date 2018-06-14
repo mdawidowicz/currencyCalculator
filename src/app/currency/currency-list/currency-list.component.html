@@ -1,8 +1,14 @@
+
+
+ <div  *ngIf="error"  class="alert alert-danger col-sm-9col-md-8 col-lg-10">
+    <strong>Ups bład serwera!</strong> "Spróbuj ponownie za jakiś czas"
+</div>
+
 <div class="container" style="text-align:center">
   <div class="row content subpage">
-<!-- 
-    <div class="col-md-4 col-xs-12 col-sm-9 separator"> -->
-      <label class="col-sm-9 control-label">Przelicz z waluty</label>
+
+
+      <label class="col-sm-9col-md-8 col-lg-10 control-label" >Przelicz z waluty</label>
       <div class="form-group col-sm-10" Style="padding-left:30px">
         <select class="form-control" [(ngModel)]="currencySymbolFrom" (change)="getCurrencyFrom()">
           <option value="" disabled selected>-- WYBIERZ WALUTĘ --</option>
@@ -17,7 +23,7 @@
         </div>
       </div>
 
-      <label class="col-sm-9 control-label separator">Przelicz na walutę</label>
+      <label class="col-sm-9col-md-8 col-lg-10 control-label separator">Przelicz na walutę</label>
       <div class="form-group col-sm-10" Style="padding-left:30px">
         <select class="form-control" [(ngModel)] = "currencySymbolTo" (change)="getCurrencyTo()">
           <option value="" disabled selected>-- WYBIERZ WALUTĘ --</option>

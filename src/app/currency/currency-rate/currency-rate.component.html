@@ -1,9 +1,13 @@
 
+ <div  *ngIf="error"  class="alert alert-danger">
+    <strong>Ups bład serwera!</strong> "Spróbuj ponownie za jakiś czas"
+</div>
+
   <div class="table-responsive">
  <table class="table table-striped">
     <thead>
-        <tr>
-          <p >Waluta bazowa EUR - {{ (exchangeEates.rates.EUR) }}</p>
+        <tr >
+          <p >Waluta bazowa EUR - {{ (exchangeEates.rates.EUR) }}.  Kurs na dzień: {{exchangeEates.date}}</p>
         </tr>
       <tr>
         <th>Waluta</th>

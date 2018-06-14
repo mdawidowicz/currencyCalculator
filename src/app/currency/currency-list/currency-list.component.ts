@@ -17,6 +17,7 @@ export class CurrencyListComponent implements OnInit {
     currencySymbolFrom = 'PLN';
     currencySymbolTo= "EUR";
     currencyRates: object;
+    error: boolean = false;
     
     constructor(private currencyService: CurrencyService) {}
 
@@ -27,24 +28,28 @@ export class CurrencyListComponent implements OnInit {
 
     //Pobieram obiekt dla konkretnej waluty 
     public getCurrencyFrom() {
-      // console.log("Wszedłem do getCurrencyFrom")
-      this.currencyService.getCurrency1(this.currencySymbolFrom).subscribe(
+      this.error = false;
+      this.currencyService.getCurrency(this.currencySymbolFrom).subscribe(
         currency => {
           this.currencyFrom = currency;
           this.changedAmount();
         },
         error => {
-          // obsługa error'a
+          this.error = true;
         });
     }
 
     //Pobieram obiekt dla konkretnej waluty 
     public getCurrencyTo() {
-      this.currencyService.getCurrency1(this.currencySymbolTo).subscribe(currency => {
-        // console.log("konkretna waluta=", currency);
+      this.error = false;
+      this.currencyService.getCurrency(this.currencySymbolTo).subscribe(currency => 
+        {
         this.currencyTo = currency;
         this.changedAmount();
-      });
+        },
+        error => {
+          this.error = true;
+        });
     }
 
     changedAmount() {

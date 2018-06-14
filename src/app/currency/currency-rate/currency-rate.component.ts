@@ -11,6 +11,7 @@ export class CurrencyRateComponent implements OnInit {
 
 
   exchangeEates: Currency;
+  error: boolean = false;
 
   constructor(private currencyService: CurrencyService) {
     this. getCurrencyTo();
@@ -21,8 +22,13 @@ export class CurrencyRateComponent implements OnInit {
 
       //Pobieram obiekt dla konkretnej waluty 
       public getCurrencyTo() {
-        this.currencyService.getCurrency1().subscribe(currency => {
+        this.error = false;
+        this.currencyService.getCurrency().subscribe(currency => 
+       {
           this.exchangeEates = currency;
+        },
+        error => {
+          this.error = true;
         });
       }
 
