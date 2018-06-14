@@ -10,39 +10,47 @@ import { Currency } from '../currency';
   styleUrls: ['./currency-list.component.css']
 })
 export class CurrencyListComponent implements OnInit {
-
-
-    amountToConverted: number;
-    amountCalculated: number;
+    amountToConvert: number = null;
+    amountCalculated: number = null;
     currencyFrom: Currency;
     currencyTo: Currency;
-    currencFrom = 'PLN';
-    currencTo= "EUR";
+    currencySymbolFrom = 'PLN';
+    currencySymbolTo= "EUR";
     currencyRates: object;
-
     
     constructor(private currencyService: CurrencyService) {}
 
     ngOnInit() {
        this.getCurrencyFrom();
+       this.getCurrencyTo();
     }
 
     //Pobieram obiekt dla konkretnej waluty 
     public getCurrencyFrom() {
-      console.log("Wszedłem do getCurrencyFrom")
-      this.currencyService.getCurrency1(this.currencFrom).subscribe(currency => {
-      console.log("konkretna waluta=", currency);
-      this.currencyFrom = currency;
-       this.currencyRates = currency.rates;
-      });
+      // console.log("Wszedłem do getCurrencyFrom")
+      this.currencyService.getCurrency1(this.currencySymbolFrom).subscribe(
+        currency => {
+          this.currencyFrom = currency;
+          this.changedAmount();
+        },
+        error => {
+          // obsługa error'a
+        });
     }
-
 
     //Pobieram obiekt dla konkretnej waluty 
     public getCurrencyTo() {
-      this.currencyService.getCurrency1(this.currencTo).subscribe(currency => {
-      console.log("konkretna waluta=", currency);
-      this.currencyTo = currency;
+      this.currencyService.getCurrency1(this.currencySymbolTo).subscribe(currency => {
+        // console.log("konkretna waluta=", currency);
+        this.currencyTo = currency;
+        this.changedAmount();
       });
+    }
+
+    changedAmount() {
+      if (this.currencyFrom && this.currencyTo) {
+        const inEuro = this.amountToConvert * 1/this.currencyFrom.rates[this.currencySymbolFrom];
+        this.amountCalculated = inEuro * this.currencyTo.rates[this.currencySymbolTo]
+      }
     }
 }
