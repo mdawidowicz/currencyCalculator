@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CurrencyListComponent } from './currency-list/currency-list.component';
 import { CurrencyService } from './services/currency.service';
 import { FormsModule } from '@angular/forms'
+import { CurrencyRateComponent } from './currency-rate/currency-rate.component';
 
 @NgModule({
   imports: [
@@ -12,12 +13,14 @@ import { FormsModule } from '@angular/forms'
     FormsModule
   ],
   declarations: [
-  CurrencyListComponent],
+  CurrencyListComponent,
+  CurrencyRateComponent],
   providers: [ 
     CurrencyService
   ], 
   exports:[
-     CurrencyListComponent
+     CurrencyListComponent,
+     CurrencyRateComponent
   ]
 })
 export class CurrencyModule { }

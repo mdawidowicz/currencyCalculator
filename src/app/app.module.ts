@@ -7,6 +7,8 @@ import { CurrencyListComponent } from './currency/currency-list/currency-list.co
 import { CurrencyModule } from './currency/currency.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CurrencyService } from './currency/services/currency.service';
+import { CurrencyRateComponent } from './currency/currency-rate/currency-rate.component';
+
 
 
 @NgModule({

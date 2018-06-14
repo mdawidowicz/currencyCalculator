@@ -1,0 +1,29 @@
+
+  <div class="table-responsive">
+ <table class="table table-striped">
+    <thead>
+        <tr>
+          <p >Waluta bazowa EUR - {{ (exchangeEates.rates.EUR) }}</p>
+        </tr>
+      <tr>
+        <th>Waluta</th>
+        <th>Kurs</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>PLN</td>
+        <td>{{ (exchangeEates.rates.PLN) }}</td>
+      </tr>
+      <tr>
+          <td>USD</td>
+          <td>{{ (exchangeEates.rates.USD) }}</td>
+      </tr>
+      <tr>
+          <td>GBP</td>
+          <td>{{ (exchangeEates.rates.GBP) }}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
