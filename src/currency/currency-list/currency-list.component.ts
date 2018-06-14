@@ -18,7 +18,7 @@ export class CurrencyListComponent implements OnInit {
     currencyTo: Currency;
     currencFrom = 'PLN';
     currencTo= "EUR";
-    currencyRates: JSON;
+    currencyRates: object;
 
     
     constructor(private currencyService: CurrencyService) {}

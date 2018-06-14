@@ -8,7 +8,7 @@ export interface Currency{
     timestamp?: number;
     base?: string;
     date?: string;
-    rates?: JSON;
+    rates?: object;
 }
 
 
