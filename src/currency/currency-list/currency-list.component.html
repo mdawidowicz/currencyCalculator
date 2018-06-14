@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="row content subpage">
+
+        <div id="page-text" class="col-md-9 col-xs-12 col-sm-9">
+        <section>
+          <h1> Kalkulator walutowy</h1>
+          <h2>Sprawdź kurs i przelicz walutę.</h2>
+        </section>
+        </div>
+
+
+
+        <div id="page-text" class="col-md-4 col-xs-12 col-sm-9 separator">
+          <label class="col-sm-9 control-label">Przelicz z waluty</label>
+          <div class="form-group col-sm-10" Style="padding-left:30px">
+                    <select class="form-control" name="currencFrom" id="currencFrom" [(ngModel)] = "currencFrom" (onchange)="getCurrencyFrom()">
+                      <!-- <option  placeholder="ciężarowe/osobowe" value="" selected></option> -->
+                      <option value="" disabled selected>-- WYBIERZ WALUTĘ --</option>
+                      <option value="PLN">PLN</option>
+                      <option value="EUR">EUR</option>
+                      <option value="USD">USD</option>
+                      <option value="GBp">GBP</option>
+                   </select>
+                   <div class="separator">Kwota do przeliczenia <input class="form-control"  [(ngModel)]="amountToConverted" name="amountToConverted" id="amountToConverted" [(ngModel)] = "amountToConverted"></div>
+          </div>
+
+          <label class="col-sm-9 control-label separator">Przelicz na walutę</label>
+          <div class="form-group col-sm-10" Style="padding-left:30px">
+                    <select class="form-control" name="currencTo" id="currencTo" [(ngModel)] = "currencTo" onchange="getCurrencyTo()">
+                      <!-- <option  placeholder="ciężarowe/osobowe" value="" selected></option> -->
+                      <option value="" disabled selected>-- WYBIERZ WALUTĘ --</option>
+                      <option value="PLN">PLN</option>
+                      <option value="EUR">EUR</option>
+                      <option value="USD">USD</option>
+                      <option value="GBp">GBP</option>
+                   </select>
+                   <div class="separator">Kwota po przeliczeniu <input class="form-control"  [(ngModel)] ="amountCalculated" name="amountCalculated" id="amountCalculated" [(ngModel)] = "amountToConverted"></div>
+          </div>
+
+            <h5>Tu wypisuję dane z currency.base OK</h5>
+            <div *ngIf="currencyFrom !== undefined">
+            <h3 >BASE=: {{ currencyFrom.base }}</h3>
+            <h3>rates=: {{ (currencyFrom.rates) }}</h3>     
+            <!-- <h3>rates=: {{ (currencyFrom | async).rates }}</h3>          -->
+          </div>
+
+
+
+
+  </div>
+
+
+
+  </div>
+</div>
