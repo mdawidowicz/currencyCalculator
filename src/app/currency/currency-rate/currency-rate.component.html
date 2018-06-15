@@ -7,7 +7,7 @@
  <table class="table table-striped">
     <thead>
         <tr >
-          <p >Waluta bazowa EUR - {{ (exchangeEates.rates.EUR) }}.  Kurs na dzień: {{exchangeEates.date}}</p>
+          <p>{{rateTitle}}
         </tr>
       <tr>
         <th>Waluta</th>
@@ -17,15 +17,17 @@
     <tbody>
       <tr>
         <td>PLN</td>
-        <td>{{ (exchangeEates.rates.PLN) }}</td>
+        <div>
+        <td *ngIf="exchangeEates != undefined">{{ (exchangeEates.rates.PLN) }}</td>
+      </div>
       </tr>
       <tr>
           <td>USD</td>
-          <td>{{ (exchangeEates.rates.USD) }}</td>
+          <td *ngIf="exchangeEates != undefined">{{ (exchangeEates.rates.USD) }}</td>
       </tr>
       <tr>
           <td>GBP</td>
-          <td>{{ (exchangeEates.rates.GBP) }}</td>
+          <td *ngIf="exchangeEates != undefined">{{ (exchangeEates.rates.GBP) }}</td>
       </tr>
     </tbody>
   </table>

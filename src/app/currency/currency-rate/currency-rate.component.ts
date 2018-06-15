@@ -11,21 +11,25 @@ export class CurrencyRateComponent implements OnInit {
 
 
   exchangeEates: Currency;
-  error: boolean = false;
+  rateTitle: String;
+  error: boolean;
 
   constructor(private currencyService: CurrencyService) {
-    this. getCurrencyTo();
+    this. getCurrency();
   }
 
   ngOnInit() {
+    this.error = false;
+    this.rateTitle = "";
   }
 
       //Pobieram obiekt dla konkretnej waluty 
-      public getCurrencyTo() {
+      public getCurrency() {
         this.error = false;
         this.currencyService.getCurrency().subscribe(currency => 
        {
           this.exchangeEates = currency;
+          this.rateTitle = "Waluta bazowa EUR -"  + currency.rates["EUR"]  + ".  Kurs na dzień: " + currency.date;
         },
         error => {
           this.error = true;
